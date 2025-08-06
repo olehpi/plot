@@ -50,7 +50,7 @@ def common_line(
     except KeyError:
         logging.warning("The plot name {} are not defined", plot_name)
         return
-    lineChart.line_plot4(path + '/' + file_name_prefix
+    lineChart.line_plot(path + '/' + file_name_prefix
                          , x_values
                          , y_values
                          , xlabel_name=plot["x_label_name"]
