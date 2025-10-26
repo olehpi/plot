@@ -2,20 +2,21 @@ from os import path
 
 from copy import deepcopy
 
-from com.science.manufacturing.graph import show
-from com.science.manufacturing.graph.constants import Constants
-from com.science.manufacturing.graph.utils.csv.csv_reader import read_csv
-from com.science.manufacturing.graph.utils.json.json_reader import read_json
+from com.science.graph import show
+from com.science.graph.constants import Constants
+from com.science.graph.utils.csv.csv_reader import read_csv
+from com.science.graph.utils.json.json_reader import read_json
 
 class DataProcessing:
     initial_dimension_flow: None
     __numberExamples = 0
 
-    def __init__(self, file_name):
+    def __init__(self, file_name, decimal=","):
         self.json_data = read_json(file_name)
         self.plot_parameters = self.json_data[Constants.JsonNames.plot_parameters]
         self.plot_structure = self.json_data[Constants.JsonNames.plot_structure]
         self.model_parameters = self.json_data[Constants.JsonNames.model_parameters]
+        self.decimal = decimal
 
     def data_shows(self):
         for graph in self.plot_structure:
@@ -23,7 +24,7 @@ class DataProcessing:
                 graph[Constants.JsonNames.output_data_path]
             ][Constants.JsonNames.path]
             self.output_data_path = graph[Constants.JsonNames.output_data_path]
-            self.csv_data = read_csv(self.csv_data_path)
+            self.csv_data = read_csv(self.csv_data_path, self.decimal)
 
             output_directory_path = path.dirname(self.csv_data_path) + "\\" + graph[Constants.JsonNames.path]
             x_column = graph[Constants.JsonNames.x_column]

@@ -1,0 +1,208 @@
+{
+  "model_parameters": {
+    "input_data_paths": {
+      "1" : {
+        "path": "E:\\A\\TransportSystem\\src\\main\\resources\\org\\sb\\control\\engine\\async\\project\\initData.csv",
+        "load_period" : 10,
+        "description" : ""
+      }
+    },
+    "output_data_paths": {
+      "1" : {
+        "path": "com/science/projects/mdpi2/project/outputData.csv",
+        "description" : "This path to file with csv-data for showing"
+      },
+      "2" : {
+        "path": "C:\\A\\Pro\\flow\\pom\\stochastic03\\project\\dataset_2020_ZeYaWuWa\\dataset_2020_ZeYaWuWa_description.csv",
+        "description" : ""
+      }
+    },
+    "commonParameters": {
+      "B" : 1.2,
+      "startTau": 0.0,
+      "researchTau": 5.0,
+      "deltaTau": 0.0001,
+      "deltaLength" : 0.01
+    },
+    "speedControlModes": [
+      { "g/g0": 0.0,  "a": 1.6,  "b": 1.0 },
+      { "g/g0": 0.4,  "a": 2.4,  "b": 2.0 },
+      { "g/g0": 0.6,  "a": 3.31, "b": 2.85 },
+      { "g/g0": 0.74, "a": 4.56, "b": 4.0 },
+      { "g/g0": 0.84, "a": 7.2,  "b": 6.65 }
+    ],
+    "speedParameters": {
+      "gInit": 0.0,
+      "startTau": 0.0,
+      "g0": 2.0
+    },
+    "psiSpeedParameters": {
+      "psiFinished": 0.0,
+      "tauFinished": 5.0
+    },
+    "nuParameters": {
+      "function" : "y(x) = a0+a1*sin(2*Pi*a2*x+2*Pi*a3)",
+      "parameters" : {
+        "a0" : 1.0,
+        "a1" : 0.5,
+        "a2" : 1.0
+      }
+    }
+  },
+  "plot_parameters" : {
+    "dpi": 1000,
+    "td_line": {
+      "visual_line_set": {"0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5}
+    , "color_line_set": {"0": "k", "1": "k", "2": "r", "3": "g", "4": "k", "5": "y"}
+    , "fontsize": 9
+    , "alpha_main": 1.0
+    , "alpha_grid": 0.7
+    , "color": "black"
+    , "x_min": 0.0
+    , "x_max": 1024.0
+    , "x_tick_main": 100.0
+    , "x_tick_auxiliary": 50.0
+    , "y_min": 0.0
+    , "y_max": 2.0
+    , "y_tick_main": 0.2
+    , "y_tick_auxiliary": 0.1
+    , "x_axis_order": "forward",
+      "x_label_name": "$N$",
+      "y_label_name": "$\\tau_d$"
+    , "x_size_plot": 85.0
+    , "y_size_plot": 60.0
+    , "plot_line_width": 1.5
+    , "grid_line_width": 1.0
+    , "border_adjustment": {
+        "left": 0.15, "right": 0.92, "top": 0.92, "bottom": 0.17
+      }
+    }
+  },
+  "plot_structure": [
+    {
+      "plot_template" : {
+        "plot_name": "td_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "x_min": 0.0,
+          "x_max": 1000.0,
+          "x_tick_main": 200.0,
+          "x_tick_auxiliary": 100.0,
+          "y_min": 0.0,
+          "y_max": 1.0,
+          "y_tick_main": 0.2,
+          "y_tick_auxiliary": 0.1
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots//td",
+      "file_name": "td_N",
+      "y_columns": ["td"],
+      "x_column": "N"
+    },
+    {
+      "plot_template" : {
+        "plot_name": "td_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "x_min": 0.0,
+          "x_max": 10.0,
+          "x_tick_main": 1.0,
+          "x_tick_auxiliary": 0.5,
+          "y_min": 0.0,
+          "y_max": 1.0,
+          "y_tick_main": 0.1,
+          "y_tick_auxiliary": 0.05,
+          "x_label_name": "$lg_2(N)$",
+          "y_label_name": "$\\tau_d$"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots//td",
+      "file_name": "td_lnN",
+      "y_columns": ["td"],
+      "x_column": "lnN"
+    },
+    {
+      "plot_template" : {
+        "plot_name": "td_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "x_min": 0.0,
+          "x_max": 10.0,
+          "x_tick_main": 1.0,
+          "x_tick_auxiliary": 0.5,
+          "y_min": 0.0,
+          "y_max": 1.0,
+          "y_tick_main": 0.1,
+          "y_tick_auxiliary": 0.05,
+          "x_label_name": "$lg_2(N)$",
+          "y_label_name": "$m_{\\tau_d}, \\tau_{da}, (m_{\\tau_d}-\\tau_{da}) $"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots//td",
+      "file_name": "tdMean",
+      "y_columns": ["tdMean", "tdDeterninate", "delta_tdMean_and_td"],
+      "x_column": "lnNdiscrete"
+    },
+    {
+      "plot_template" : {
+        "plot_name": "td_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "x_min": 0.0,
+          "x_max": 10.0,
+          "x_tick_main": 1.0,
+          "x_tick_auxiliary": 0.5,
+          "y_min": 0.0,
+          "y_max": 1.0,
+          "y_tick_main": 0.1,
+          "y_tick_auxiliary": 0.05,
+          "x_label_name": "$lg_2(N)$",
+          "y_label_name": "$\\sigma_{\\tau_d}$"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots//td",
+      "file_name": "tdStd",
+      "y_columns": ["tdStd"],
+      "x_column": "lnNdiscrete"
+    },
+    {
+      "plot_template" : {
+        "plot_name": "td_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "x_min": 0.0,          "x_max": 10.0,          "x_tick_main": 1.0,          "x_tick_auxiliary": 0.5,
+          "y_min": 0.0,          "y_max": 1.0,           "y_tick_main": 0.1,          "y_tick_auxiliary": 0.05,
+          "x_label_name": "$lg_2(N)$",
+          "y_label_name": "$\\tau_{d min}$"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots//td",
+      "file_name": "tdMin",
+      "y_columns": ["tdMin"],
+      "x_column": "lnNdiscrete"
+    },
+    {
+      "plot_template" : {
+        "plot_name": "td_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "x_min": 0.0,          "x_max": 10.0,          "x_tick_main": 1.0,          "x_tick_auxiliary": 0.5,
+          "y_min": 0.0,          "y_max": 2.0,           "y_tick_main": 0.2,          "y_tick_auxiliary": 0.1,
+          "y_label_name": "$\\tau_{d max}, (\\tau_{d max}-\\tau_{d min})$",
+          "x_label_name": "$lg_2(N)$"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots//td",
+      "file_name": "tdMax",
+      "y_columns": ["tdMax", "delta_tdMax_and_tdMin"],
+      "x_column": "lnNdiscrete"
+    }
+
+  ]
+}
