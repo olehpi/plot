@@ -83,7 +83,7 @@
           "y_tick_main": 0.1,
           "y_tick_auxiliary": 0.05,
           "x_label_name": "$lg_2(N)$",
-          "y_label_name": "$\\tau_1   , \\tau_2  , \\tau   $"
+          "y_label_name": "$\\vartheta_{m1}   , \\vartheta_{m2}  , \\vartheta_m   $"
         }
       },
       "output_data_path": "1",

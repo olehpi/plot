@@ -1,0 +1,174 @@
+{
+  "model_parameters": {
+    "input_data_paths": {
+      "1" : {
+        "path": "initData.csv",
+        "load_period" : 10,
+        "description" : ""
+      }
+    },
+    "output_data_paths": {
+      "1" : {
+        "path": "com/science/projects/mdpi3/fig02/project/df_functions_of_a.csv",
+        "description" : "This path to file with csv-data for showing"
+      },
+      "2" : {
+        "path": "description.csv",
+        "description" : ""
+      }
+    }
+  },
+  "plot_parameters" : {
+    "dpi": 1000,
+    "fi_line": {
+      "visual_line_set": {"0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5}
+    , "color_line_set": {"0": "k", "1": "k", "2": "r", "3": "g", "4": "k", "5": "y"}
+    , "fontsize": 9
+    , "alpha_main": 1.0
+    , "alpha_grid": 0.7
+    , "color": "black"
+    , "x_min": -4.0
+    , "x_max": 4.0
+    , "x_tick_main": 1.0
+    , "x_tick_auxiliary": 0.5
+    , "y_min": 0.0
+    , "y_max": 0.5
+    , "y_tick_main": 0.05
+    , "y_tick_auxiliary": 0.025
+    , "x_axis_order": "forward",
+      "x_label_name": "$N$",
+      "y_label_name": "$\\tau_d$"
+    , "x_size_plot": 85.0
+    , "y_size_plot": 60.0
+    , "plot_line_width": 1.5
+    , "grid_line_width": 1.0
+    , "border_adjustment": {
+        "left": 0.15, "right": 0.92, "top": 0.92, "bottom": 0.17
+      }
+    }
+  },
+  "plot_structure": [
+    {
+      "plot_template": {
+        "plot_name": "fi_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "y_min": 0.0,
+          "y_max": 0.5,
+          "y_tick_main": 0.05,
+          "y_tick_auxiliary": 0.025,
+          "x_label_name": "$a$",
+          "y_label_name": "$\\varphi(a)$"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots",
+      "file_name": "fi_a",
+      "y_columns": ["fi"],
+      "x_column": "a_s"
+    },
+    {
+      "plot_template": {
+        "plot_name": "fi_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "y_min": 0.0,
+          "y_max": 1.00,
+          "y_tick_main": 0.1,
+          "y_tick_auxiliary": 0.05,
+          "x_label_name": "$a$",
+          "y_label_name": "$\\Phi(a)$"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots",
+      "file_name": "F",
+      "y_columns": ["F"],
+      "x_column": "a_s"
+    },
+    {
+      "plot_template": {
+        "plot_name": "fi_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "y_min": 0.0,
+          "y_max": 4.0,
+          "y_tick_main": 1.0,
+          "y_tick_auxiliary": 0.5,
+          "x_label_name": "$a$",
+          "y_label_name": "$f_m(a)$"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots",
+      "file_name": "mean",
+      "y_columns": ["mean"],
+      "x_column": "a_s"
+    },
+    {
+      "plot_template": {
+        "plot_name": "fi_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "y_min": 0.0,
+          "y_max": 1.00,
+          "y_tick_main": 0.1,
+          "y_tick_auxiliary": 0.05,
+          "x_label_name": "$a$",
+          "y_label_name": "$f_{\\sigma}(a)$"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots",
+      "file_name": "std",
+      "y_columns": ["std"],
+      "x_column": "a_s"
+    },
+    {
+      "plot_template": {
+        "plot_name": "fi_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "x_min": 0.0,
+          "x_max": 4.0,
+          "x_tick_main": 0.5,
+          "x_tick_auxiliary": 0.25,
+          "y_min": -0.4,
+          "y_max": 0.05,
+          "y_tick_main": 0.05,
+          "y_tick_auxiliary": 0.025,
+          "x_label_name": "$a$",
+          "y_label_name": "$f_{\\Delta m}(a)$"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots",
+      "file_name": "corr_mean",
+      "y_columns": ["corr_mean"],
+      "x_column": "a_s"
+    },
+    {
+      "plot_template": {
+        "plot_name": "fi_line",
+        "plot_type": "line",
+        "plot_parameters": {
+          "x_min": 0.0,
+          "x_max": 4.0,
+          "x_tick_main": 0.5,
+          "x_tick_auxiliary": 0.25,
+          "y_min": 0.95,
+          "y_max": 1.25,
+          "y_tick_main": 0.05,
+          "y_tick_auxiliary": 0.025,
+          "x_label_name": "$a$",
+          "y_label_name": "$k_{\\sigma}(a)$"
+        }
+      },
+      "output_data_path": "1",
+      "path": "plots",
+      "file_name": "corr_std_koef",
+      "y_columns": ["corr_std_koef"],
+      "x_column": "a_s"
+    }
+  ]
+}

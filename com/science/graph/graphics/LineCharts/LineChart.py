@@ -115,7 +115,6 @@ def line_plot(file_name
     plt.grid(True, color=_color, alpha=_alpha_grid, lw=_grid_line_width)
     plt.xlabel(xlabel_name, fontsize=_fontsize, loc='right')
     plt.xlim(min(x_values), max(x_values))  # set xMin, xMax
-    plt.ylim(min(ys_values[0]), max(ys_values[0]))  # set yMin, yMax
 
     plt.xticks(fontsize=_fontsize)
     plt.ylim(0)
@@ -123,7 +122,9 @@ def line_plot(file_name
         plt.xlim(x_min, x_max)
     if y1_max > 0.0:
         plt.ylim(y1_min, y1_max)
-    # plt.yticks(np.linspace(0, 0.0006, 11))
+    else:
+        plt.ylim(min(ys_values[0]), max(ys_values[0]))  # set yMin, yMax
+
     plt.yticks(fontsize=_fontsize)
     plt.tight_layout(pad=3.0)  # tight_layout() can take keyword arguments of pad, w_pad and h_pad
     plt.rcParams['axes.xmargin'] = 0  # offset of the axes from the origin, given by xMin, xMax, yMin, yMax

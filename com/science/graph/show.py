@@ -104,10 +104,6 @@ def common_hist(
     plot = experiment["plot_parameters"][plot_name]
     count_of_intervals_xi2 = plot["count_of_intervals_xi2"]
 
-    # column_name = 'time'
-    # hist.histPlot(path + '/' + column_name, df, column_name, count_of_intervals_xi2, True, 'density', r'$t$', 0.7, 0.7,
-    #               _dpi=600)
-
     Hist.histPlot2(path + '/' + file_name_prefix
                    , y_values
                    , count_of_intervals_xi2
